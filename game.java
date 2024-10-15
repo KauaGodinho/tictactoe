@@ -17,7 +17,7 @@ public class game {
     private int playAgain = 1;
     private String title = "Jogo da Velha";
     private int lenTitle = title.length() + 4;
-    private int menuChoose = 0;
+    private int menuChoose = 1;
     private String firstPlayerSymbol = "x";
     private String secondPlayerSymbol = "o";
     private String firstPlayerSymbolF = firstPlayerSymbol.substring(0, 1);
@@ -69,11 +69,13 @@ public class game {
                 case 2:
                     do{
                         System.out.println("1. Change player symbols \n2.Exit");
+                        optionsMenu = scanner.nextInt();
+                        scanner.nextLine();
                         switch (optionsMenu) {
                             case 1:
                                 System.out.println("type the first symbol");
                                 firstPlayerSymbol = scanner.nextLine();
-                                System.out.println("Type the second symbol");
+                                System.out.println("\nType the second symbol");
                                 secondPlayerSymbol = scanner.nextLine();
                                 System.out.println("\nThe symbols have been changed!");
                                 break;
@@ -83,9 +85,10 @@ public class game {
 
                             default:
                                 System.out.println("Invalid option, type '2' to exit.");
+                                break;
                         }
                     }while(optionsMenu != 2);
-            
+                    break;
                 case 0:
                     playAgain = 0;
                     stop = 0;
@@ -94,7 +97,7 @@ public class game {
                 default:
                     System.out.println("Choose a valid option!");
             }
-        }while(menuChoose != 0 && menuChoose != 1 && menuChoose != 2);
+        }while(menuChoose != 0 && menuChoose != 1 );
     }
  
 
@@ -117,9 +120,10 @@ public class game {
                 
             
             do{
-                if (menuChoose == 1)
+                if(playAgain == 1) {
                 System.out.println("\nWould you like to play again? type 0 to exit or type 1 to continue.");
                 playAgain = scanner.nextInt();
+                }
                 switch(playAgain){
                     
                     case 0:
@@ -199,12 +203,12 @@ public class game {
                 if (board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] != " "){
                     if (player == 0){
                         window();
-                        System.out.println("The 'o' won!");
+                        System.out.println("The" + secondPlayerSymbol + "won!");
                         stop = 0;
     
                     }else{
                         window();
-                        System.out.println("The 'x' won!");
+                        System.out.println("The" + firstPlayerSymbolF + "won!");
                         stop = 0;
                     }
 
@@ -215,11 +219,11 @@ public class game {
                 if (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] != " "){
                     if (player == 0){
                         window();
-                        System.out.println("The 'o' won!");
+                        System.out.println("The" + secondPlayerSymbol + "won!");
                         stop = 0;
                     }else{
                         window();
-                        System.out.println("The 'x' won!");
+                        System.out.println("The" + firstPlayerSymbolF + "won!");
                         stop = 0;
                     }
 
@@ -229,11 +233,11 @@ public class game {
             if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] != " ") || (board[2][0] == board[1][1] && board[2][0] == board[0][2] && board[2][0] != " ")){
                 if (player == 0){
                     window();
-                    System.out.println("The 'o' won!");
+                    System.out.println("The" + secondPlayerSymbol + "won!");
                     stop = 0;
                 }else{
                     window();
-                    System.out.println("The 'x' won!");
+                    System.out.println("The" + firstPlayerSymbolF + "won!");
                     stop = 0;
                 }
 
