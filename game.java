@@ -18,8 +18,13 @@ public class game {
     private String title = "Jogo da Velha";
     private int lenTitle = title.length() + 4;
     private int menuChoose = 0;
-
+    private String firstPlayerSymbol = "x";
+    private String secondPlayerSymbol = "o";
+    private String firstPlayerSymbolF = firstPlayerSymbol.substring(0, 1);
+    private String secondPlayerSymbolF = secondPlayerSymbol.substring(0, 1);
     //Filling the array.
+    private int optionsMenu = 0;
+
     public game(){
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
@@ -52,6 +57,7 @@ public class game {
         System.out.println();
         do{
             System.out.println("1. Start");
+            System.out.println("2. Options");
             System.out.println("0. Exit");
 
             menuChoose = scanner.nextInt();
@@ -59,6 +65,26 @@ public class game {
             switch (menuChoose) {
                 case 1:
                     break;
+
+                case 2:
+                    do{
+                        System.out.println("1. Change player symbols \n2.Exit");
+                        switch (optionsMenu) {
+                            case 1:
+                                System.out.println("type the first symbol");
+                                firstPlayerSymbol = scanner.nextLine();
+                                System.out.println("Type the second symbol");
+                                secondPlayerSymbol = scanner.nextLine();
+                                System.out.println("\nThe symbols have been changed!");
+                                break;
+                        
+                            case 2:
+                                break;
+
+                            default:
+                                System.out.println("Invalid option, type '2' to exit.");
+                        }
+                    }while(optionsMenu != 2);
             
                 case 0:
                     playAgain = 0;
@@ -68,7 +94,7 @@ public class game {
                 default:
                     System.out.println("Choose a valid option!");
             }
-        }while(menuChoose != 0 && menuChoose != 1);
+        }while(menuChoose != 0 && menuChoose != 1 && menuChoose != 2);
     }
  
 
@@ -91,6 +117,7 @@ public class game {
                 
             
             do{
+                if (menuChoose == 1)
                 System.out.println("\nWould you like to play again? type 0 to exit or type 1 to continue.");
                 playAgain = scanner.nextInt();
                 switch(playAgain){
@@ -157,10 +184,10 @@ public class game {
 
     public String fillBoard(int line, int column){
         if (player == 0){
-            board[line][column] = "o";
+            board[line][column] = secondPlayerSymbolF;
         
         }else{
-            board[line][column] = "x";
+            board[line][column] = firstPlayerSymbol;
         }
         return board[line][column];
     }
