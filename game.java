@@ -40,7 +40,7 @@ public class game {
             stop = 1;
             player = 0;
             count = 1;
-            if (playAgain != 0) {
+            if (playAgain == 1) {
                 do{
                     window();
                     checkPlayerTurn();
@@ -49,7 +49,25 @@ public class game {
                 }while (stop != 0);
             }
                 
-        }while(playAgain != 0);
+            
+            do{
+                System.out.println("\nWould you like to play again? type 0 to exit or type 1 to continue.");
+                playAgain = scanner.nextInt();
+                switch(playAgain){
+                    
+                    case 0:
+                        break;
+
+                    case 1:
+                        break;
+
+                    default:
+                        System.out.println("Invalide option, type 0 to exit or type 1 to continue"); 
+                        break;     
+                }
+            }while(playAgain != 1 && playAgain != 0);
+                
+        }while(playAgain == 1 );
         
         
     }
@@ -115,15 +133,11 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The 'o' won!");
-                        System.out.println("Would you like to play again? type 0 to exit.");
-                        playAgain = scanner.nextInt();
                         stop = 0;
     
                     }else{
                         window();
                         System.out.println("The 'x' won!");
-                        System.out.println("Would you like to play again? type 0 to exit.");
-                        playAgain = scanner.nextInt();
                         stop = 0;
                     }
 
@@ -135,14 +149,10 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The 'o' won!");
-                        System.out.println("Would you like to play again? type 0 to exit.");
-                        playAgain = scanner.nextInt();
                         stop = 0;
                     }else{
                         window();
                         System.out.println("The 'x' won!");
-                        System.out.println("Would you like to play again? type 0 to exit.");
-                        playAgain = scanner.nextInt();
                         stop = 0;
                     }
 
@@ -153,14 +163,10 @@ public class game {
                 if (player == 0){
                     window();
                     System.out.println("The 'o' won!");
-                    System.out.println("Would you like to play again? type 0 to exit.");
-                    playAgain = scanner.nextInt();
                     stop = 0;
                 }else{
                     window();
                     System.out.println("The 'x' won!");
-                    System.out.println("Would you like to play again? type 0 to exit.");
-                    playAgain = scanner.nextInt();
                     stop = 0;
                 }
 
@@ -169,7 +175,6 @@ public class game {
         }else{
             window();
             System.out.println("Draw!");
-            System.out.println("Would you like to play again? type 0 to exit.");
             playAgain = scanner.nextInt();
             stop = 0;
         }
