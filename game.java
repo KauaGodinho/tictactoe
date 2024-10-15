@@ -14,6 +14,8 @@ public class game {
     //Counts how many rounds were played.
     private int count = 1;
 
+    private int playAgain = 1;
+
     //Filling the array.
     public game(){
         for(int i = 0; i < 3; i++){
@@ -23,14 +25,33 @@ public class game {
         }
     }
 
+    public void clearBoard(){
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board.length; j++) {
+                board[i][j] = " ";
+            }
+        }
+    }
+
     // Object that will run the game.
     public void execulte(){
         do{
-            window();
-            checkPlayerTurn();
-            moves();
-            verifyMatch();
-        }while (stop != 0);
+            clearBoard();
+            stop = 1;
+            player = 0;
+            count = 1;
+            if (playAgain != 0) {
+                do{
+                    window();
+                    checkPlayerTurn();
+                    moves();
+                    verifyMatch();
+                }while (stop != 0);
+            }
+                
+        }while(playAgain != 0);
+        
+        
     }
     
     public void window(){
@@ -94,10 +115,15 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The 'o' won!");
+                        System.out.println("Would you like to play again? type 0 to exit.");
+                        playAgain = scanner.nextInt();
                         stop = 0;
+    
                     }else{
                         window();
                         System.out.println("The 'x' won!");
+                        System.out.println("Would you like to play again? type 0 to exit.");
+                        playAgain = scanner.nextInt();
                         stop = 0;
                     }
 
@@ -109,10 +135,14 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The 'o' won!");
+                        System.out.println("Would you like to play again? type 0 to exit.");
+                        playAgain = scanner.nextInt();
                         stop = 0;
                     }else{
                         window();
                         System.out.println("The 'x' won!");
+                        System.out.println("Would you like to play again? type 0 to exit.");
+                        playAgain = scanner.nextInt();
                         stop = 0;
                     }
 
@@ -123,10 +153,14 @@ public class game {
                 if (player == 0){
                     window();
                     System.out.println("The 'o' won!");
+                    System.out.println("Would you like to play again? type 0 to exit.");
+                    playAgain = scanner.nextInt();
                     stop = 0;
                 }else{
                     window();
                     System.out.println("The 'x' won!");
+                    System.out.println("Would you like to play again? type 0 to exit.");
+                    playAgain = scanner.nextInt();
                     stop = 0;
                 }
 
@@ -135,6 +169,8 @@ public class game {
         }else{
             window();
             System.out.println("Draw!");
+            System.out.println("Would you like to play again? type 0 to exit.");
+            playAgain = scanner.nextInt();
             stop = 0;
         }
         count++;
