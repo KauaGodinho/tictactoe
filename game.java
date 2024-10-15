@@ -20,9 +20,6 @@ public class game {
     private int menuChoose = 1;
     private String firstPlayerSymbol = "x";
     private String secondPlayerSymbol = "o";
-    private String firstPlayerSymbolF = firstPlayerSymbol.substring(0, 1);
-    private String secondPlayerSymbolF = secondPlayerSymbol.substring(0, 1);
-    //Filling the array.
     private int optionsMenu = 0;
 
     public game(){
@@ -74,9 +71,9 @@ public class game {
                         switch (optionsMenu) {
                             case 1:
                                 System.out.println("type the first symbol");
-                                firstPlayerSymbol = scanner.nextLine();
+                                firstPlayerSymbol = scanner.nextLine().substring(0, 1);
                                 System.out.println("\nType the second symbol");
-                                secondPlayerSymbol = scanner.nextLine();
+                                secondPlayerSymbol = scanner.nextLine().substring(0, 1);
                                 System.out.println("\nThe symbols have been changed!");
                                 break;
                         
@@ -188,7 +185,7 @@ public class game {
 
     public String fillBoard(int line, int column){
         if (player == 0){
-            board[line][column] = secondPlayerSymbolF;
+            board[line][column] = secondPlayerSymbol;
         
         }else{
             board[line][column] = firstPlayerSymbol;
@@ -203,12 +200,12 @@ public class game {
                 if (board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] != " "){
                     if (player == 0){
                         window();
-                        System.out.println("The" + secondPlayerSymbol + "won!");
+                        System.out.println("The " + secondPlayerSymbol + " won!");
                         stop = 0;
     
                     }else{
                         window();
-                        System.out.println("The" + firstPlayerSymbolF + "won!");
+                        System.out.println("The " + firstPlayerSymbol + " won!");
                         stop = 0;
                     }
 
@@ -219,11 +216,11 @@ public class game {
                 if (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] != " "){
                     if (player == 0){
                         window();
-                        System.out.println("The" + secondPlayerSymbol + "won!");
+                        System.out.println("The " + secondPlayerSymbol + " won!");
                         stop = 0;
                     }else{
                         window();
-                        System.out.println("The" + firstPlayerSymbolF + "won!");
+                        System.out.println("The " + firstPlayerSymbol + " won!");
                         stop = 0;
                     }
 
@@ -233,11 +230,11 @@ public class game {
             if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] != " ") || (board[2][0] == board[1][1] && board[2][0] == board[0][2] && board[2][0] != " ")){
                 if (player == 0){
                     window();
-                    System.out.println("The" + secondPlayerSymbol + "won!");
+                    System.out.println("The " + secondPlayerSymbol + " won!");
                     stop = 0;
                 }else{
                     window();
-                    System.out.println("The" + firstPlayerSymbolF + "won!");
+                    System.out.println("The " + firstPlayerSymbol + " won!");
                     stop = 0;
                 }
 
