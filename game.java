@@ -15,6 +15,9 @@ public class game {
     private int count = 1;
 
     private int playAgain = 1;
+    private String title = "Jogo da Velha";
+    private int lenTitle = title.length() + 4;
+    private int menuChoose = 0;
 
     //Filling the array.
     public game(){
@@ -33,8 +36,45 @@ public class game {
         }
     }
 
+    public void homeMenu(){
+        for (int i = 0; i < lenTitle; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+
+        // Imprimindo o título com asteriscos
+        System.out.println("* " + title + " *");
+
+        // Imprimindo a linha de asteriscos novamente
+        for (int i = 0; i < lenTitle; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+        do{
+            System.out.println("1. Start");
+            System.out.println("0. Exit");
+
+            menuChoose = scanner.nextInt();
+
+            switch (menuChoose) {
+                case 1:
+                    break;
+            
+                case 0:
+                    playAgain = 0;
+                    stop = 0;
+                    break;
+
+                default:
+                    System.out.println("Choose a valid option!");
+            }
+        }while(menuChoose != 0 && menuChoose != 1);
+    }
+ 
+
     // Object that will run the game.
     public void execulte(){
+        homeMenu();
         do{
             clearBoard();
             stop = 1;
