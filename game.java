@@ -21,6 +21,8 @@ public class game {
     private String firstPlayerSymbol = "x";
     private String secondPlayerSymbol = "o";
     private int optionsMenu = 0;
+    private int scoreP1 = 0;
+    private int scoreP2 = 0;
 
     public game(){
         for(int i = 0; i < 3; i++){
@@ -101,7 +103,15 @@ public class game {
     // Object that will run the game.
     public void execulte(){
         homeMenu();
+        scanner.nextLine();
+        System.out.println("Insert the first Player's name: ");
+        String namePlayer1 = scanner.nextLine();
+
+
+        System.out.println("Insert the second Player's name:");
+        String namePlayer2 = scanner.nextLine();
         do{
+            
             clearBoard();
             stop = 1;
             player = 0;
@@ -112,6 +122,8 @@ public class game {
                     checkPlayerTurn();
                     moves();
                     verifyMatch();
+                    System.out.println("SCORE: " + namePlayer1 + " " + scoreP1 + " x " + scoreP2 + " " + namePlayer2);
+                    System.out.println();
                 }while (stop != 0);
             }
                 
@@ -201,11 +213,13 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The " + secondPlayerSymbol + " won!");
+                        scoreP2++;
                         stop = 0;
     
                     }else{
                         window();
                         System.out.println("The " + firstPlayerSymbol + " won!");
+                        scoreP1++;
                         stop = 0;
                     }
 
@@ -217,10 +231,12 @@ public class game {
                     if (player == 0){
                         window();
                         System.out.println("The " + secondPlayerSymbol + " won!");
+                        scoreP2++;
                         stop = 0;
                     }else{
                         window();
                         System.out.println("The " + firstPlayerSymbol + " won!");
+                        scoreP1++;
                         stop = 0;
                     }
 
@@ -231,10 +247,12 @@ public class game {
                 if (player == 0){
                     window();
                     System.out.println("The " + secondPlayerSymbol + " won!");
+                    scoreP2++;
                     stop = 0;
                 }else{
                     window();
                     System.out.println("The " + firstPlayerSymbol + " won!");
+                    scoreP1++;
                     stop = 0;
                 }
 
