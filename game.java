@@ -15,7 +15,7 @@ public class game {
     private int count = 1;
 
     private int playAgain = 1;
-    private String title = "Jogo da Velha";
+    private String title = "Tic Tac Toe";
     private int lenTitle = title.length() + 4;
     private int menuChoose = 1;
     private String firstPlayerSymbol = "x";
