@@ -261,7 +261,6 @@ public class game {
         }else{
             window();
             System.out.println("Draw!");
-            playAgain = scanner.nextInt();
             stop = 0;
         }
         count++;
